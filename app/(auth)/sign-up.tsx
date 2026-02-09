@@ -2,7 +2,7 @@ import { useSignUp } from "@clerk/clerk-expo";
 import { Link, router } from "expo-router";
 import { useState } from "react";
 import { Alert, Image, ScrollView, Text, View } from "react-native";
-import { ReactNativeModal } from "react-native-modal";
+import Modal from "react-native-modal";
 
 import CustomButton from "@/components/CustomButton";
 import InputField from "@/components/InputField";
@@ -129,7 +129,7 @@ const SignUp = () => {
             <Text className="text-primary-500">Log In</Text>
           </Link>
         </View>
-        <ReactNativeModal
+        <Modal
           isVisible={verification.state === "pending"}
           // onBackdropPress={() =>
           //   setVerification({ ...verification, state: "default" })
@@ -168,8 +168,8 @@ const SignUp = () => {
               className="mt-5 bg-success-500"
             />
           </View>
-        </ReactNativeModal>
-        <ReactNativeModal isVisible={showSuccessModal}>
+        </Modal>
+        <Modal isVisible={showSuccessModal}>
           <View className="bg-white px-7 py-9 rounded-2xl min-h-[300px]">
             <Image
               source={images.check}
@@ -187,7 +187,7 @@ const SignUp = () => {
               className="mt-5"
             />
           </View>
-        </ReactNativeModal>
+        </Modal>
       </View>
     </ScrollView>
   );

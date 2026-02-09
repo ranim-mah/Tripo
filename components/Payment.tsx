@@ -2,7 +2,7 @@ import { useAuth } from "@clerk/clerk-expo";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Alert, Image, Text, View } from "react-native";
-import { ReactNativeModal } from "react-native-modal";
+import Modal from "react-native-modal";
 
 import CustomButton from "@/components/CustomButton";
 import { images } from "@/constants";
@@ -64,10 +64,7 @@ const Payment = ({ amount, driverId, rideTime }: PaymentProps) => {
         onPress={confirmCashRide}
       />
 
-      <ReactNativeModal
-        isVisible={success}
-        onBackdropPress={() => setSuccess(false)}
-      >
+      <Modal isVisible={success} onBackdropPress={() => setSuccess(false)}>
         <View className="flex flex-col items-center justify-center bg-white p-7 rounded-2xl">
           <Image source={images.check} className="w-28 h-28 mt-5" />
 
@@ -89,7 +86,7 @@ const Payment = ({ amount, driverId, rideTime }: PaymentProps) => {
             className="mt-5"
           />
         </View>
-      </ReactNativeModal>
+      </Modal>
     </>
   );
 };
